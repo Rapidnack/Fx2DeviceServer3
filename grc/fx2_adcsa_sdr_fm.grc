@@ -593,7 +593,7 @@ class blk(gr.basic_block):
         clkDiv2 = clk / 2.0
         bank = np.floor(self._frequency / clkDiv2)
         iq_swap = int(bank % 2)
-        data = (iq_swap &lt;&lt; 9) + (int(self._cic_gain)&lt;&lt; 4) + int(self._cic_rate)
+        data = (iq_swap &lt;&lt; 9) + (int(self._cic_gain) &lt;&lt; 4) + int(self._cic_rate)
         try:
             self._stream.write('*W32:0x%x 0x%x\n' % (0x20, data))
             self._stream.flush()
